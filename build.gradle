@@ -1,0 +1,21 @@
+plugins {
+    id'java'
+    id'application'
+    id'com.github.johnrengelman.shadow' version '2.0.4'
+}
+
+mainClassName = 'me.duncte123.menuDocs.Main'
+
+version '1.0'
+
+sourceCompatibility = JavaVersion.VERSION_1_10
+
+repositories {
+    jcenter()
+}
+
+dependencies {
+    compile group: 'net.dv8tion', name: 'JDA', version: '3.7.1_409'
+}
+
+compileJava.options.encoding = 'UTF-8'
