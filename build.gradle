@@ -15,7 +15,7 @@ repositories {
 }
 
 dependencies {
-    compile group: 'net.dv8tion', name: 'JDA', version: '3.7.1_409'
+    compile group: 'net.dv8tion', name: 'JDA', version: '3.7.1_419'
 }
 
 compileJava.options.encoding = 'UTF-8'

@@ -8,19 +8,19 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" name="Gradle: net.dv8tion:JDA:3.7.1_409" level="project" />
+    <orderEntry type="library" name="Gradle: net.dv8tion:JDA:3.7.1_419" level="project" />
     <orderEntry type="library" name="Gradle: com.google.code.findbugs:jsr305:3.0.2" level="project" />
     <orderEntry type="library" name="Gradle: org.jetbrains:annotations:16.0.1" level="project" />
     <orderEntry type="library" name="Gradle: org.slf4j:slf4j-api:1.7.25" level="project" />
     <orderEntry type="library" name="Gradle: com.neovisionaries:nv-websocket-client:2.5" level="project" />
     <orderEntry type="library" name="Gradle: com.squareup.okhttp3:okhttp:3.8.1" level="project" />
-    <orderEntry type="library" name="Gradle: club.minnced:opus-java:pom:1.0.3" level="project" />
+    <orderEntry type="library" name="Gradle: club.minnced:opus-java:pom:1.0.4" level="project" />
     <orderEntry type="library" name="Gradle: org.apache.commons:commons-collections4:4.1" level="project" />
     <orderEntry type="library" name="Gradle: org.json:json:20160810" level="project" />
     <orderEntry type="library" name="Gradle: net.sf.trove4j:trove4j:3.0.3" level="project" />
     <orderEntry type="library" name="Gradle: com.squareup.okio:okio:1.13.0" level="project" />
-    <orderEntry type="library" name="Gradle: club.minnced:opus-java-api:1.0.3" level="project" />
-    <orderEntry type="library" name="Gradle: club.minnced:opus-java-natives:1.0.3" level="project" />
+    <orderEntry type="library" name="Gradle: club.minnced:opus-java-api:1.0.4" level="project" />
+    <orderEntry type="library" name="Gradle: club.minnced:opus-java-natives:1.0.4" level="project" />
     <orderEntry type="library" name="Gradle: net.java.dev.jna:jna:4.4.0" level="project" />
   </component>
 </module>

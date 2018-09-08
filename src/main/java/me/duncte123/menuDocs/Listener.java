@@ -1,11 +1,15 @@
 package me.duncte123.menuDocs;
 
+import net.dv8tion.jda.core.JDA;
 import net.dv8tion.jda.core.entities.*;
 import net.dv8tion.jda.core.events.ReadyEvent;
 import net.dv8tion.jda.core.events.message.MessageReceivedEvent;
+import net.dv8tion.jda.core.events.message.guild.GuildMessageReceivedEvent;
 import net.dv8tion.jda.core.hooks.ListenerAdapter;
 
 class Listener extends ListenerAdapter {
+
+    private final CommandManager manager = new CommandManager();
 
     @Override
     public void onReady(ReadyEvent event) {
@@ -28,5 +32,24 @@ class Listener extends ListenerAdapter {
         } else if (event.isFromType(ChannelType.PRIVATE)) {
             System.out.printf("[PRIV]<%#s>: %s\n", author, content);
         }
+    }
+
+    @Override
+    public void onGuildMessageReceived(GuildMessageReceivedEvent event) {
+
+        if (event.getMessage().getContentRaw().equalsIgnoreCase(Constants.PREFIX + "shutdown") &&
+                event.getAuthor().getIdLong() == Constants.OWNER) {
+            shutdown(event.getJDA());
+            return;
+        }
+
+        if (!event.getAuthor().isBot() && !event.getMessage().isWebhookMessage() &&
+                event.getMessage().getContentRaw().startsWith(Constants.PREFIX)) {
+            manager.handleCommand(event);
+        }
+    }
+
+    private void shutdown(JDA jda) {
+        jda.shutdown();
     }
 }

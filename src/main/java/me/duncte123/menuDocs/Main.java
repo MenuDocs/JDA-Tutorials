@@ -14,7 +14,7 @@ public class Main {
             new JDABuilder(AccountType.BOT)
                     .setToken(Secrets.TOKEN)
                     .setAudioEnabled(false)
-                    .setGame(Game.streaming("JDA", "https://twitch.tv/duncte123"))
+                    .setGame(Game.streaming("Subscribe to MenuDocs", "https://twitch.tv/duncte123"))
                     .addEventListener(new Listener())
                     .build().awaitReady();
             System.out.println("Running");
