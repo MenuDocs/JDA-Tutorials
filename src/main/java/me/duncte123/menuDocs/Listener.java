@@ -6,14 +6,21 @@ import net.dv8tion.jda.core.events.ReadyEvent;
 import net.dv8tion.jda.core.events.message.MessageReceivedEvent;
 import net.dv8tion.jda.core.events.message.guild.GuildMessageReceivedEvent;
 import net.dv8tion.jda.core.hooks.ListenerAdapter;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 class Listener extends ListenerAdapter {
 
-    private final CommandManager manager = new CommandManager();
+    private final CommandManager manager;
+    private final Logger logger = LoggerFactory.getLogger(Listener.class);
+
+    Listener(CommandManager manager) {
+        this.manager = manager;
+    }
 
     @Override
     public void onReady(ReadyEvent event) {
-        System.out.printf("Logged in as %#s\n", event.getJDA().getSelfUser());
+        logger.info(String.format("Logged in as %#s", event.getJDA().getSelfUser()));
     }
 
     @Override
@@ -28,9 +35,9 @@ class Listener extends ListenerAdapter {
             Guild guild = event.getGuild();
             TextChannel textChannel = event.getTextChannel();
 
-            System.out.printf("(%s)[%s]<%#s>: %s\n", guild.getName(), textChannel.getName(), author, content);
+            logger.info(String.format("(%s)[%s]<%#s>: %s", guild.getName(), textChannel.getName(), author, content));
         } else if (event.isFromType(ChannelType.PRIVATE)) {
-            System.out.printf("[PRIV]<%#s>: %s\n", author, content);
+            logger.info(String.format("[PRIV]<%#s>: %s", author, content));
         }
     }
 
