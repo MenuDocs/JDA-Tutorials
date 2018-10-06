@@ -1,7 +1,6 @@
 package me.duncte123.menuDocs;
 
-import me.duncte123.menuDocs.commands.HelpCommand;
-import me.duncte123.menuDocs.commands.PingCommand;
+import me.duncte123.menuDocs.commands.*;
 import me.duncte123.menuDocs.objects.ICommand;
 import net.dv8tion.jda.core.events.message.guild.GuildMessageReceivedEvent;
 import org.jetbrains.annotations.NotNull;
@@ -13,9 +12,12 @@ public class CommandManager {
 
     private final Map<String, ICommand> commands = new HashMap<>();
 
-    CommandManager() {
+    CommandManager(Random random) {
         addCommand(new PingCommand());
         addCommand(new HelpCommand(this));
+        addCommand(new CatCommand());
+        addCommand(new DogCommand());
+        addCommand(new MemeCommand(random));
     }
 
     private void addCommand(ICommand command) {
@@ -40,6 +42,7 @@ public class CommandManager {
         if (commands.containsKey(invoke)) {
             final List<String> args = Arrays.asList(split).subList(1, split.length);
 
+            event.getChannel().sendTyping().queue();
             commands.get(invoke).handle(args, event);
         }
     }
