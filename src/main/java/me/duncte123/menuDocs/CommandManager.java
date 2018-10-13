@@ -18,6 +18,7 @@ public class CommandManager {
         addCommand(new CatCommand());
         addCommand(new DogCommand());
         addCommand(new MemeCommand(random));
+        addCommand(new UserInfoCommand());
     }
 
     private void addCommand(ICommand command) {
