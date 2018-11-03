@@ -1,6 +1,7 @@
 package me.duncte123.menuDocs;
 
 import me.duncte123.menuDocs.commands.*;
+import me.duncte123.menuDocs.commands.moderation.KickCommand;
 import me.duncte123.menuDocs.objects.ICommand;
 import net.dv8tion.jda.core.events.message.guild.GuildMessageReceivedEvent;
 import org.jetbrains.annotations.NotNull;
@@ -19,6 +20,7 @@ public class CommandManager {
         addCommand(new DogCommand());
         addCommand(new MemeCommand(random));
         addCommand(new UserInfoCommand());
+        addCommand(new KickCommand());
     }
 
     private void addCommand(ICommand command) {
