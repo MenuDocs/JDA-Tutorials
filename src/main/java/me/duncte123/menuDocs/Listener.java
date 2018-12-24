@@ -44,14 +44,17 @@ class Listener extends ListenerAdapter {
     @Override
     public void onGuildMessageReceived(GuildMessageReceivedEvent event) {
 
-        if (event.getMessage().getContentRaw().equalsIgnoreCase(Constants.PREFIX + "shutdown") &&
+        String rw = event.getMessage().getContentRaw();
+
+        if (rw.equalsIgnoreCase(Constants.PREFIX + "shutdown") &&
                 event.getAuthor().getIdLong() == Constants.OWNER) {
             shutdown(event.getJDA());
             return;
         }
 
-        if (!event.getAuthor().isBot() && !event.getMessage().isWebhookMessage() &&
-                event.getMessage().getContentRaw().startsWith(Constants.PREFIX)) {
+        String prefix = Constants.PREFIXES.computeIfAbsent(event.getGuild().getIdLong(), (l) -> Constants.PREFIX);
+
+        if (!event.getAuthor().isBot() && !event.getMessage().isWebhookMessage() && rw.startsWith(prefix)) {
             manager.handleCommand(event);
         }
     }

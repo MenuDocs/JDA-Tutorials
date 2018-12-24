@@ -1,6 +1,7 @@
 package me.duncte123.menuDocs;
 
 import me.duncte123.menuDocs.commands.*;
+import me.duncte123.menuDocs.commands.admin.SetPrefixCommand;
 import me.duncte123.menuDocs.commands.moderation.BanCommand;
 import me.duncte123.menuDocs.commands.moderation.KickCommand;
 import me.duncte123.menuDocs.commands.moderation.UnbanCommand;
@@ -25,6 +26,7 @@ public class CommandManager {
         addCommand(new KickCommand());
         addCommand(new BanCommand());
         addCommand(new UnbanCommand());
+        addCommand(new SetPrefixCommand());
     }
 
     private void addCommand(ICommand command) {
@@ -42,8 +44,10 @@ public class CommandManager {
     }
 
     void handleCommand(GuildMessageReceivedEvent event) {
+        final String prefix = Constants.PREFIXES.get(event.getGuild().getIdLong());
+
         final String[] split = event.getMessage().getContentRaw().replaceFirst(
-                "(?i)" + Pattern.quote(Constants.PREFIX), "").split("\\s+");
+                "(?i)" + Pattern.quote(prefix), "").split("\\s+");
         final String invoke = split[0].toLowerCase();
 
         if (commands.containsKey(invoke)) {
