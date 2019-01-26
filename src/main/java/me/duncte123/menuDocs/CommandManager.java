@@ -5,6 +5,8 @@ import me.duncte123.menuDocs.commands.admin.SetPrefixCommand;
 import me.duncte123.menuDocs.commands.moderation.BanCommand;
 import me.duncte123.menuDocs.commands.moderation.KickCommand;
 import me.duncte123.menuDocs.commands.moderation.UnbanCommand;
+import me.duncte123.menuDocs.commands.music.JoinCommand;
+import me.duncte123.menuDocs.commands.music.LeaveCommand;
 import me.duncte123.menuDocs.objects.ICommand;
 import net.dv8tion.jda.core.events.message.guild.GuildMessageReceivedEvent;
 import org.jetbrains.annotations.NotNull;
@@ -27,6 +29,9 @@ public class CommandManager {
         addCommand(new BanCommand());
         addCommand(new UnbanCommand());
         addCommand(new SetPrefixCommand());
+
+        addCommand(new JoinCommand());
+        addCommand(new LeaveCommand());
     }
 
     private void addCommand(ICommand command) {

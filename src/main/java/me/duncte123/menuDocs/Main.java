@@ -36,7 +36,6 @@ public class Main {
             logger.info("Booting");
             new JDABuilder(AccountType.BOT)
                     .setToken(Secrets.TOKEN)
-                    .setAudioEnabled(false)
                     .setGame(Game.streaming("Subscribe to MenuDocs", "https://twitch.tv/duncte123"))
                     .addEventListener(listener)
                     .build().awaitReady();
