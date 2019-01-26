@@ -95,3 +95,4 @@ gradle-app.setting
 
 # file with token
 src/main/java/me/duncte123/menuDocs/Secrets.java
+\.idea/
