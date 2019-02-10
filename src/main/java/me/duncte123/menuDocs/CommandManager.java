@@ -7,6 +7,7 @@ import me.duncte123.menuDocs.commands.moderation.KickCommand;
 import me.duncte123.menuDocs.commands.moderation.UnbanCommand;
 import me.duncte123.menuDocs.commands.music.JoinCommand;
 import me.duncte123.menuDocs.commands.music.LeaveCommand;
+import me.duncte123.menuDocs.commands.music.PlayCommand;
 import me.duncte123.menuDocs.objects.ICommand;
 import net.dv8tion.jda.core.events.message.guild.GuildMessageReceivedEvent;
 import org.jetbrains.annotations.NotNull;
@@ -32,6 +33,7 @@ public class CommandManager {
 
         addCommand(new JoinCommand());
         addCommand(new LeaveCommand());
+        addCommand(new PlayCommand());
     }
 
     private void addCommand(ICommand command) {
