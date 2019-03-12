@@ -34,6 +34,7 @@ public class CommandManager {
         addCommand(new PlayCommand());
         addCommand(new StopCommand());
         addCommand(new QueueCommand());
+        addCommand(new SkipCommand());
     }
 
     private void addCommand(ICommand command) {
