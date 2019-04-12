@@ -6,6 +6,7 @@ import me.duncte123.menuDocs.commands.moderation.BanCommand;
 import me.duncte123.menuDocs.commands.moderation.KickCommand;
 import me.duncte123.menuDocs.commands.moderation.UnbanCommand;
 import me.duncte123.menuDocs.commands.music.*;
+import me.duncte123.menuDocs.config.Config;
 import me.duncte123.menuDocs.objects.ICommand;
 import net.dv8tion.jda.core.events.message.guild.GuildMessageReceivedEvent;
 import org.jetbrains.annotations.NotNull;
@@ -18,25 +19,30 @@ public class CommandManager {
     private final Map<String, ICommand> commands = new HashMap<>();
 
     CommandManager(Random random) {
-        addCommand(new PingCommand());
-        addCommand(new HelpCommand(this));
-        addCommand(new CatCommand());
-        addCommand(new DogCommand());
-        addCommand(new MemeCommand(random));
-        addCommand(new UserInfoCommand());
-        addCommand(new KickCommand());
-        addCommand(new BanCommand());
-        addCommand(new UnbanCommand());
-        addCommand(new SetPrefixCommand());
-        addCommand(new ServerInfoCommand());
 
-        addCommand(new JoinCommand());
-        addCommand(new LeaveCommand());
-        addCommand(new PlayCommand());
-        addCommand(new StopCommand());
-        addCommand(new QueueCommand());
-        addCommand(new SkipCommand());
-        addCommand(new NowPlayingCommand());
+        if (Config.getInstance().getBoolean("loadcommands")) {
+            System.out.println("Loading commands");
+
+            addCommand(new PingCommand());
+            addCommand(new HelpCommand(this));
+            addCommand(new CatCommand());
+            addCommand(new DogCommand());
+            addCommand(new MemeCommand(random));
+            addCommand(new UserInfoCommand());
+            addCommand(new KickCommand());
+            addCommand(new BanCommand());
+            addCommand(new UnbanCommand());
+            addCommand(new SetPrefixCommand());
+            addCommand(new ServerInfoCommand());
+
+            addCommand(new JoinCommand());
+            addCommand(new LeaveCommand());
+            addCommand(new PlayCommand());
+            addCommand(new StopCommand());
+            addCommand(new QueueCommand());
+            addCommand(new SkipCommand());
+            addCommand(new NowPlayingCommand());
+        }
     }
 
     private void addCommand(ICommand command) {

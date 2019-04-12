@@ -1,4 +1,4 @@
-package me.duncte123.menuDocs;
+package me.duncte123.menuDocs.commands;
 
 import me.duncte123.botcommons.messaging.EmbedUtils;
 import me.duncte123.menuDocs.objects.ICommand;
