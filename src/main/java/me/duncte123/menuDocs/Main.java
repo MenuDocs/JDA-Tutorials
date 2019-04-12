@@ -3,6 +3,7 @@ package me.duncte123.menuDocs;
 import me.duncte123.botcommons.messaging.EmbedUtils;
 import me.duncte123.botcommons.web.WebUtils;
 import me.duncte123.menuDocs.config.Config;
+import net.dv8tion.jda.bot.sharding.DefaultShardManagerBuilder;
 import net.dv8tion.jda.core.AccountType;
 import net.dv8tion.jda.core.EmbedBuilder;
 import net.dv8tion.jda.core.JDABuilder;
@@ -27,7 +28,7 @@ public class Main {
         Listener listener = new Listener(commandManager);
         Logger logger = LoggerFactory.getLogger(Main.class);
 
-        WebUtils.setUserAgent("Mozilla/5.0 MenuDocs JDA Tutorial Bot/duncte123#1245");
+        WebUtils.setUserAgent(); // Set your own user agent as string
         EmbedUtils.setEmbedBuilder(
                 () -> new EmbedBuilder()
                         .setColor(getRandomColor())
@@ -37,13 +38,14 @@ public class Main {
 
         try {
             logger.info("Booting");
-            new JDABuilder(AccountType.BOT)
+            new DefaultShardManagerBuilder()
                     .setToken(config.getString("token"))
+                    .setShardsTotal(2)
                     .setGame(Game.streaming("Subscribe to MenuDocs", "https://twitch.tv/duncte123"))
-                    .addEventListener(listener)
-                    .build().awaitReady();
+                    .addEventListeners(listener)
+                    .build();
             logger.info("Running");
-        } catch (LoginException | InterruptedException e) {
+        } catch (LoginException e) {
             e.printStackTrace();
         }
     }
