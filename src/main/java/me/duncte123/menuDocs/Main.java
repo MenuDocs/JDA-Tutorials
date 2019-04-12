@@ -2,6 +2,7 @@ package me.duncte123.menuDocs;
 
 import me.duncte123.botcommons.messaging.EmbedUtils;
 import me.duncte123.botcommons.web.WebUtils;
+import me.duncte123.menuDocs.config.Config;
 import net.dv8tion.jda.core.AccountType;
 import net.dv8tion.jda.core.EmbedBuilder;
 import net.dv8tion.jda.core.JDABuilder;
@@ -11,6 +12,8 @@ import org.slf4j.LoggerFactory;
 
 import javax.security.auth.login.LoginException;
 import java.awt.*;
+import java.io.File;
+import java.io.IOException;
 import java.time.Instant;
 import java.util.Random;
 
@@ -18,13 +21,13 @@ public class Main {
 
     private final Random random = new Random();
 
-    private Main() {
-
+    private Main() throws IOException {
+        Config config = new Config(new File("botconfig.json"));
         CommandManager commandManager = new CommandManager(random);
         Listener listener = new Listener(commandManager);
         Logger logger = LoggerFactory.getLogger(Main.class);
 
-        WebUtils.setUserAgent("Mozilla/5.0 MenuDocs JDA Tutorial Bot/duncte123#1245");
+        WebUtils.setUserAgent(); // Set your own user agent as string
         EmbedUtils.setEmbedBuilder(
                 () -> new EmbedBuilder()
                         .setColor(getRandomColor())
@@ -35,7 +38,7 @@ public class Main {
         try {
             logger.info("Booting");
             new JDABuilder(AccountType.BOT)
-                    .setToken(Secrets.TOKEN)
+                    .setToken(config.getString("token"))
                     .setGame(Game.streaming("Subscribe to MenuDocs", "https://twitch.tv/duncte123"))
                     .addEventListener(listener)
                     .build().awaitReady();
@@ -53,7 +56,7 @@ public class Main {
         return new Color(r, g, b);
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         new Main();
     }
 
