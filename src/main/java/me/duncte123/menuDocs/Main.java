@@ -40,7 +40,6 @@ public class Main {
             logger.info("Booting");
             new DefaultShardManagerBuilder()
                     .setToken(config.getString("token"))
-                    .setShardsTotal(2)
                     .setGame(Game.streaming("Subscribe to MenuDocs", "https://twitch.tv/duncte123"))
                     .addEventListeners(listener)
                     .build();
