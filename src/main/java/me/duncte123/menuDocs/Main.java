@@ -28,7 +28,7 @@ public class Main {
         Listener listener = new Listener(commandManager);
         Logger logger = LoggerFactory.getLogger(Main.class);
 
-        WebUtils.setUserAgent("Mozilla/5.0 MenuDocs JDA Tutorial Bot/duncte123#1245");
+        WebUtils.setUserAgent(); // Set your own user agent as string
         EmbedUtils.setEmbedBuilder(
                 () -> new EmbedBuilder()
                         .setColor(getRandomColor())
@@ -40,7 +40,6 @@ public class Main {
             logger.info("Booting");
             new DefaultShardManagerBuilder()
                     .setToken(config.getString("token"))
-                    .setShardsTotal(2)
                     .setGame(Game.streaming("Subscribe to MenuDocs", "https://twitch.tv/duncte123"))
                     .addEventListeners(listener)
                     .build();

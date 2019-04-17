@@ -34,6 +34,7 @@ public class CommandManager {
             addCommand(new UnbanCommand());
             addCommand(new SetPrefixCommand());
             addCommand(new ServerInfoCommand());
+            addCommand(new UptimeCommand());
 
             addCommand(new JoinCommand());
             addCommand(new LeaveCommand());
