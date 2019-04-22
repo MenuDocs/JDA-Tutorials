@@ -6,6 +6,7 @@ import me.duncte123.menuDocs.commands.moderation.BanCommand;
 import me.duncte123.menuDocs.commands.moderation.KickCommand;
 import me.duncte123.menuDocs.commands.moderation.UnbanCommand;
 import me.duncte123.menuDocs.commands.music.*;
+import me.duncte123.menuDocs.commands.owner.EvalCommand;
 import me.duncte123.menuDocs.config.Config;
 import me.duncte123.menuDocs.objects.ICommand;
 import net.dv8tion.jda.core.events.message.guild.GuildMessageReceivedEvent;
@@ -43,6 +44,8 @@ public class CommandManager {
             addCommand(new QueueCommand());
             addCommand(new SkipCommand());
             addCommand(new NowPlayingCommand());
+
+            addCommand(new EvalCommand());
         }
     }
 
