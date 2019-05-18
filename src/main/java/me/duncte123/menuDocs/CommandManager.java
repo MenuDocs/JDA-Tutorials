@@ -4,6 +4,7 @@ import me.duncte123.menuDocs.commands.*;
 import me.duncte123.menuDocs.commands.admin.SetPrefixCommand;
 import me.duncte123.menuDocs.commands.moderation.BanCommand;
 import me.duncte123.menuDocs.commands.moderation.KickCommand;
+import me.duncte123.menuDocs.commands.moderation.PurgeCommand;
 import me.duncte123.menuDocs.commands.moderation.UnbanCommand;
 import me.duncte123.menuDocs.commands.music.*;
 import me.duncte123.menuDocs.commands.owner.EvalCommand;
@@ -36,6 +37,7 @@ public class CommandManager {
             addCommand(new SetPrefixCommand());
             addCommand(new ServerInfoCommand());
             addCommand(new UptimeCommand());
+            addCommand(new PurgeCommand());
 
             addCommand(new JoinCommand());
             addCommand(new LeaveCommand());
