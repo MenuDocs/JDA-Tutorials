@@ -20,7 +20,7 @@ public class CommandManager {
 
     private final Map<String, ICommand> commands = new HashMap<>();
 
-    CommandManager(Random random) {
+    CommandManager() {
 
         if (Config.getInstance().getBoolean("loadcommands")) {
             System.out.println("Loading commands");
@@ -29,7 +29,7 @@ public class CommandManager {
             addCommand(new HelpCommand(this));
             addCommand(new CatCommand());
             addCommand(new DogCommand());
-            addCommand(new MemeCommand(random));
+            addCommand(new MemeCommand());
             addCommand(new UserInfoCommand());
             addCommand(new KickCommand());
             addCommand(new BanCommand());

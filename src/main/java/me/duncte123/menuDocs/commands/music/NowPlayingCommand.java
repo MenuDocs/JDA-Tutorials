@@ -35,7 +35,7 @@ public class NowPlayingCommand implements ICommand {
                 player.isPaused() ? "\u23F8" : "▶",
                 formatTime(player.getPlayingTrack().getPosition()),
                 formatTime(player.getPlayingTrack().getDuration())
-        ))).queue();
+        )).build()).queue();
     }
 
     @Override

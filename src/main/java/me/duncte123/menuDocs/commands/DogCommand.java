@@ -12,8 +12,8 @@ public class DogCommand implements ICommand {
     @Override
     public void handle(List<String> args, GuildMessageReceivedEvent event) {
         WebUtils.ins.getJSONObject("https://random.dog/woof.json").async( (json) -> {
-            String url = json.getString("url");
-            MessageEmbed embed = EmbedUtils.embedImage(url);
+            String url = json.get("url").asText();
+            MessageEmbed embed = EmbedUtils.embedImage(url).build();
             //TODO: Make a permission check to see if the bot can send embeds if not, send plain text
             event.getChannel().sendMessage(embed).queue();
         });

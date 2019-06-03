@@ -14,7 +14,7 @@ public class CatCommand implements ICommand {
 
         WebUtils.ins.scrapeWebPage("https://api.thecatapi.com/api/images/get?format=xml&results_per_page=1").async( (document) -> {
             String url = document.getElementsByTag("url").first().html();
-            MessageEmbed embed = EmbedUtils.embedImage(url);
+            MessageEmbed embed = EmbedUtils.embedImage(url).build();
             //TODO: Make a permission check to see if the bot can send embeds if not, send plain text
             event.getChannel().sendMessage(embed).queue();
         });
