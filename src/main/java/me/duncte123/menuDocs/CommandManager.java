@@ -38,6 +38,7 @@ public class CommandManager {
             addCommand(new ServerInfoCommand());
             addCommand(new UptimeCommand());
             addCommand(new PurgeCommand());
+            addCommand(new DiceCommand());
 
             addCommand(new JoinCommand());
             addCommand(new LeaveCommand());

@@ -5,7 +5,7 @@ import java.util.Map;
 
 public class Constants {
 
-    public static final String PREFIX = "j!";
+    public static final String PREFIX = "!!";
     public static final long OWNER = 191231307290771456L;
     public static final Map<Long, String> PREFIXES = new HashMap<>();
 
