@@ -1,5 +1,6 @@
 package me.duncte123.menuDocs;
 
+import com.jagrosh.jdautilities.commons.waiter.EventWaiter;
 import me.duncte123.menuDocs.commands.*;
 import me.duncte123.menuDocs.commands.admin.SetPrefixCommand;
 import me.duncte123.menuDocs.commands.moderation.BanCommand;
@@ -20,7 +21,7 @@ public class CommandManager {
 
     private final Map<String, ICommand> commands = new HashMap<>();
 
-    CommandManager() {
+    CommandManager(EventWaiter waiter) {
 
         if (Config.getInstance().getBoolean("loadcommands")) {
             System.out.println("Loading commands");
@@ -39,6 +40,7 @@ public class CommandManager {
             addCommand(new UptimeCommand());
             addCommand(new PurgeCommand());
             addCommand(new DiceCommand());
+            addCommand(new EventWaiterExampleCommand(waiter));
 
             addCommand(new JoinCommand());
             addCommand(new LeaveCommand());

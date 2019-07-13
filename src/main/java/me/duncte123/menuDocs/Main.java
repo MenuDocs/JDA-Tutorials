@@ -1,5 +1,6 @@
 package me.duncte123.menuDocs;
 
+import com.jagrosh.jdautilities.commons.waiter.EventWaiter;
 import me.duncte123.botcommons.messaging.EmbedUtils;
 import me.duncte123.botcommons.web.WebUtils;
 import me.duncte123.menuDocs.config.Config;
@@ -24,7 +25,8 @@ public class Main {
 
     private Main() throws IOException {
         Config config = new Config(new File("botconfig.json"));
-        CommandManager commandManager = new CommandManager();
+        EventWaiter waiter = new EventWaiter();
+        CommandManager commandManager = new CommandManager(waiter);
         Listener listener = new Listener(commandManager);
         Logger logger = LoggerFactory.getLogger(Main.class);
 
@@ -41,7 +43,7 @@ public class Main {
             new DefaultShardManagerBuilder()
                     .setToken(config.getString("token"))
                     .setGame(Game.streaming("Subscribe to MenuDocs", "https://twitch.tv/duncte123"))
-                    .addEventListeners(listener)
+                    .addEventListeners(waiter, listener)
                     .build();
             logger.info("Running");
         } catch (LoginException e) {
