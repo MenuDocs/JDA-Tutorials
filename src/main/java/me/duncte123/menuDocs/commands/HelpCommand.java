@@ -4,8 +4,8 @@ import me.duncte123.botcommons.messaging.EmbedUtils;
 import me.duncte123.menuDocs.CommandManager;
 import me.duncte123.menuDocs.Constants;
 import me.duncte123.menuDocs.objects.ICommand;
-import net.dv8tion.jda.core.EmbedBuilder;
-import net.dv8tion.jda.core.events.message.guild.GuildMessageReceivedEvent;
+import net.dv8tion.jda.api.EmbedBuilder;
+import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
 
 import java.util.List;
 

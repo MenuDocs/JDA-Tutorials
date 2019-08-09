@@ -2,11 +2,11 @@ package me.duncte123.menuDocs.commands.moderation;
 
 import me.duncte123.menuDocs.Constants;
 import me.duncte123.menuDocs.objects.ICommand;
-import net.dv8tion.jda.core.Permission;
-import net.dv8tion.jda.core.entities.Guild;
-import net.dv8tion.jda.core.entities.TextChannel;
-import net.dv8tion.jda.core.entities.User;
-import net.dv8tion.jda.core.events.message.guild.GuildMessageReceivedEvent;
+import net.dv8tion.jda.api.Permission;
+import net.dv8tion.jda.api.entities.Guild;
+import net.dv8tion.jda.api.entities.TextChannel;
+import net.dv8tion.jda.api.entities.User;
+import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -34,7 +34,7 @@ public class UnbanCommand implements ICommand {
 
         String argsJoined = String.join(" ", args);
 
-        event.getGuild().getBanList().queue((bans) -> {
+        event.getGuild().retrieveBanList().queue((bans) -> {
 
             List<User> goodUsers = bans.stream().filter((ban) -> isCorrectUser(ban, argsJoined))
                     .map(Guild.Ban::getUser).collect(Collectors.toList());
@@ -49,7 +49,7 @@ public class UnbanCommand implements ICommand {
             String mod = String.format("%#s", event.getAuthor());
             String bannedUser = String.format("%#s", target);
 
-            event.getGuild().getController().unban(target)
+            event.getGuild().unban(target)
                     .reason("Unbanned By " + mod).queue();
 
             channel.sendMessage("User " + bannedUser + " unbanned.").queue();

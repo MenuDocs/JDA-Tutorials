@@ -2,12 +2,12 @@ package me.duncte123.menuDocs.commands;
 
 import com.jagrosh.jdautilities.commons.waiter.EventWaiter;
 import me.duncte123.menuDocs.objects.ICommand;
-import net.dv8tion.jda.bot.sharding.ShardManager;
-import net.dv8tion.jda.core.entities.MessageReaction.ReactionEmote;
-import net.dv8tion.jda.core.entities.TextChannel;
-import net.dv8tion.jda.core.entities.User;
-import net.dv8tion.jda.core.events.message.guild.GuildMessageReceivedEvent;
-import net.dv8tion.jda.core.events.message.guild.react.GuildMessageReactionAddEvent;
+import net.dv8tion.jda.api.sharding.ShardManager;
+import net.dv8tion.jda.api.entities.MessageReaction.ReactionEmote;
+import net.dv8tion.jda.api.entities.TextChannel;
+import net.dv8tion.jda.api.entities.User;
+import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
+import net.dv8tion.jda.api.events.message.guild.react.GuildMessageReactionAddEvent;
 
 import java.util.List;
 import java.util.concurrent.TimeUnit;
@@ -28,7 +28,7 @@ public class EventWaiterExampleCommand implements ICommand {
 
         channel.sendMessage("Please react with " + EMOJI).queue((message) -> {
             message.addReaction(EMOJI).queue();
-            initWaiter(message.getIdLong(), channelId, event.getJDA().asBot().getShardManager());
+            initWaiter(message.getIdLong(), channelId, event.getJDA().getShardManager());
         });
     }
 

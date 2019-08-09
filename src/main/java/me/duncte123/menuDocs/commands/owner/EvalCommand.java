@@ -3,7 +3,7 @@ package me.duncte123.menuDocs.commands.owner;
 import groovy.lang.GroovyShell;
 import me.duncte123.menuDocs.Constants;
 import me.duncte123.menuDocs.objects.ICommand;
-import net.dv8tion.jda.core.events.message.guild.GuildMessageReceivedEvent;
+import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
 
 import java.util.List;
 
@@ -17,12 +17,12 @@ public class EvalCommand implements ICommand {
                 "import java.lang.*\n" +
                 "import java.util.*\n" +
                 "import java.util.concurrent.*\n" +
-                "import net.dv8tion.jda.core.*\n" +
-                "import net.dv8tion.jda.core.entities.*\n" +
-                "import net.dv8tion.jda.core.entities.impl.*\n" +
-                "import net.dv8tion.jda.core.managers.*\n" +
-                "import net.dv8tion.jda.core.managers.impl.*\n" +
-                "import net.dv8tion.jda.core.utils.*\n";
+                "import net.dv8tion.jda.api.*\n" +
+                "import net.dv8tion.jda.api.entities.*\n" +
+                "import net.dv8tion.jda.api.entities.impl.*\n" +
+                "import net.dv8tion.jda.api.managers.*\n" +
+                "import net.dv8tion.jda.api.managers.impl.*\n" +
+                "import net.dv8tion.jda.api.utils.*\n";
     }
 
     @Override

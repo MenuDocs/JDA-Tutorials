@@ -4,10 +4,10 @@ import com.jagrosh.jdautilities.commons.utils.FinderUtil;
 import me.duncte123.botcommons.messaging.EmbedUtils;
 import me.duncte123.menuDocs.Constants;
 import me.duncte123.menuDocs.objects.ICommand;
-import net.dv8tion.jda.core.entities.Member;
-import net.dv8tion.jda.core.entities.MessageEmbed;
-import net.dv8tion.jda.core.entities.User;
-import net.dv8tion.jda.core.events.message.guild.GuildMessageReceivedEvent;
+import net.dv8tion.jda.api.entities.Member;
+import net.dv8tion.jda.api.entities.MessageEmbed;
+import net.dv8tion.jda.api.entities.User;
+import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
 
 import java.time.format.DateTimeFormatter;
 import java.util.List;
@@ -47,8 +47,8 @@ public class UserInfoCommand implements ICommand {
                 .addField("Username#Discriminator", String.format("%#s", user), false)
                 .addField("Display Name", member.getEffectiveName(), false)
                 .addField("User Id + Mention", String.format("%s (%s)", user.getId(), member.getAsMention()), false)
-                .addField("Account Created", user.getCreationTime().format(DateTimeFormatter.RFC_1123_DATE_TIME), false)
-                .addField("Guild Joined", member.getJoinDate().format(DateTimeFormatter.RFC_1123_DATE_TIME), false)
+                .addField("Account Created", user.getTimeCreated().format(DateTimeFormatter.RFC_1123_DATE_TIME), false)
+                .addField("Guild Joined", member.getTimeJoined().format(DateTimeFormatter.RFC_1123_DATE_TIME), false)
                 .addField("Online Status", member.getOnlineStatus().name().toLowerCase().replaceAll("_", " "), false)
                 .addField("Bot Account", user.isBot() ? "Yes" : "No", false)
                 .build();

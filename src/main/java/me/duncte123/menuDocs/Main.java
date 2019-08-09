@@ -4,11 +4,9 @@ import com.jagrosh.jdautilities.commons.waiter.EventWaiter;
 import me.duncte123.botcommons.messaging.EmbedUtils;
 import me.duncte123.botcommons.web.WebUtils;
 import me.duncte123.menuDocs.config.Config;
-import net.dv8tion.jda.bot.sharding.DefaultShardManagerBuilder;
-import net.dv8tion.jda.core.AccountType;
-import net.dv8tion.jda.core.EmbedBuilder;
-import net.dv8tion.jda.core.JDABuilder;
-import net.dv8tion.jda.core.entities.Game;
+import net.dv8tion.jda.api.EmbedBuilder;
+import net.dv8tion.jda.api.entities.Activity;
+import net.dv8tion.jda.api.sharding.DefaultShardManagerBuilder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -42,7 +40,7 @@ public class Main {
             logger.info("Booting");
             new DefaultShardManagerBuilder()
                     .setToken(config.getString("token"))
-                    .setGame(Game.streaming("Subscribe to MenuDocs", "https://twitch.tv/duncte123"))
+                    .setActivity(Activity.streaming("Subscribe to MenuDocs", "https://twitch.tv/duncte123"))
                     .addEventListeners(waiter, listener)
                     .build();
             logger.info("Running");

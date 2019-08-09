@@ -2,10 +2,10 @@ package me.duncte123.menuDocs.commands;
 
 import me.duncte123.botcommons.messaging.EmbedUtils;
 import me.duncte123.menuDocs.objects.ICommand;
-import net.dv8tion.jda.core.EmbedBuilder;
-import net.dv8tion.jda.core.OnlineStatus;
-import net.dv8tion.jda.core.entities.Guild;
-import net.dv8tion.jda.core.events.message.guild.GuildMessageReceivedEvent;
+import net.dv8tion.jda.api.EmbedBuilder;
+import net.dv8tion.jda.api.OnlineStatus;
+import net.dv8tion.jda.api.entities.Guild;
+import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
 
 import java.time.format.DateTimeFormatter;
 import java.util.List;
@@ -19,7 +19,7 @@ public class ServerInfoCommand implements ICommand {
                 "**Owner**: <@%s>\n**Region**: %s\n**Creation Date**: %s\n**Verification Level**: %s",
                 guild.getOwnerId(),
                 guild.getRegion().getName(),
-                guild.getCreationTime().format(DateTimeFormatter.RFC_1123_DATE_TIME),
+                guild.getTimeCreated().format(DateTimeFormatter.RFC_1123_DATE_TIME),
                 convertVerificationLevel(guild.getVerificationLevel())
         );
 

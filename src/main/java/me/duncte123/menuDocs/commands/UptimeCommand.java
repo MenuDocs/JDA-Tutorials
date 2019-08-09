@@ -1,7 +1,7 @@
 package me.duncte123.menuDocs.commands;
 
 import me.duncte123.menuDocs.objects.ICommand;
-import net.dv8tion.jda.core.events.message.guild.GuildMessageReceivedEvent;
+import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
 
 import java.lang.management.ManagementFactory;
 import java.lang.management.RuntimeMXBean;

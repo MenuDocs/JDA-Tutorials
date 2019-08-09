@@ -2,10 +2,10 @@ package me.duncte123.menuDocs.commands.moderation;
 
 import me.duncte123.menuDocs.Constants;
 import me.duncte123.menuDocs.objects.ICommand;
-import net.dv8tion.jda.core.Permission;
-import net.dv8tion.jda.core.entities.Member;
-import net.dv8tion.jda.core.entities.TextChannel;
-import net.dv8tion.jda.core.events.message.guild.GuildMessageReceivedEvent;
+import net.dv8tion.jda.api.Permission;
+import net.dv8tion.jda.api.entities.Member;
+import net.dv8tion.jda.api.entities.TextChannel;
+import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
 
 import java.util.List;
 
@@ -38,7 +38,7 @@ public class KickCommand implements ICommand {
         }
 
 
-        event.getGuild().getController().kick(target, String.format("Kick by: %#s, with reason: %s",
+        event.getGuild().kick(target, String.format("Kick by: %#s, with reason: %s",
                 event.getAuthor(), reason)).queue();
 
         channel.sendMessage("Success!").queue();

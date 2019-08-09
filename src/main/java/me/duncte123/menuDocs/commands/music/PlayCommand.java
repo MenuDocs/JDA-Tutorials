@@ -8,8 +8,8 @@ import me.duncte123.menuDocs.Constants;
 import me.duncte123.menuDocs.config.Config;
 import me.duncte123.menuDocs.music.PlayerManager;
 import me.duncte123.menuDocs.objects.ICommand;
-import net.dv8tion.jda.core.entities.TextChannel;
-import net.dv8tion.jda.core.events.message.guild.GuildMessageReceivedEvent;
+import net.dv8tion.jda.api.entities.TextChannel;
+import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
 
 import javax.annotation.Nullable;
 import java.net.MalformedURLException;

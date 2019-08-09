@@ -3,7 +3,7 @@ package me.duncte123.menuDocs.commands.music;
 import me.duncte123.menuDocs.music.GuildMusicManager;
 import me.duncte123.menuDocs.music.PlayerManager;
 import me.duncte123.menuDocs.objects.ICommand;
-import net.dv8tion.jda.core.events.message.guild.GuildMessageReceivedEvent;
+import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
 
 import java.util.List;
 
